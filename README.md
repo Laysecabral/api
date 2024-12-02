@@ -1,6 +1,6 @@
 ## Api
 
-Aluno-online
+Projeto aluno online
 
 * A API desenvolvida com Spring Boot utilizando o Spring Initializr, foi criada para organizar e gerenciar informações de um ambiente acadêmico e usada para controle dos dados de "aluno", "professore", "disciplina" e "matrículaAluno".
 
