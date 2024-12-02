@@ -20,7 +20,7 @@ Projeto aluno online
 
 - Na URL http://localhost:8080/matriculas-alunos foram criadas as requisições tipo POST, PUT, GET, DELETE e PTCH;
 
-Sendo usado o formato JSON no corpo de todas as requisição.
+- Sendo usado o formato JSON no corpo de todas as requisição.
 
 * Foi instalada a ferramenta Swagger para documentar a API.
 
@@ -31,4 +31,9 @@ Sendo usado o formato JSON no corpo de todas as requisição.
 ![readme insomnia](https://github.com/user-attachments/assets/1211fd04-8870-46ef-b769-a41934fb7790)
 
 
+
+
+
+
+![readme dbeaver](https://github.com/user-attachments/assets/e57b158f-f82d-4aaa-915d-b79388a7d841)
 
