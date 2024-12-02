@@ -22,17 +22,13 @@ public class MatriculaAlunoService {
     @Autowired
     MatriculaAlunoRepository matriculaAlunoRepository;
 
-    /*
-    É aqui que o aluno vai se matricular
-     */
+  
     public void criarMatricula(MatriculaAluno matriculaAluno) {
         matriculaAluno.setStatus(MatriculaAlunoStatusEnum.MATRICULADO);
         matriculaAlunoRepository.save(matriculaAluno);
     }
 
-    /*
-    É aqui que o aluno vai trancar sua matricula em alguma disciplina
-     */
+    
     public void trancarMatricula(Long matriculaAlunoId) {
         MatriculaAluno matriculaAluno =
                 matriculaAlunoRepository.findById(matriculaAlunoId)
@@ -41,7 +37,7 @@ public class MatriculaAlunoService {
                                         "Matricula Aluno não encontrada!"));
 
         if (!MatriculaAlunoStatusEnum.MATRICULADO.equals(matriculaAluno.getStatus())) {
-            // Lançar o erro se o status não for matriculado
+           
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
                     "Só é possível trancar uma matricula com o status MATRICULADO");
         }
@@ -58,17 +54,15 @@ public class MatriculaAlunoService {
                                 new ResponseStatusException(HttpStatus.NOT_FOUND,
                                         "Matricula Aluno não encontrada!"));
 
-        // Verifica se o front tá mandando a nota1
-        // atualizarNotasRequest.getNota1(): Traz a nota que vem do front
+        
         if (atualizarNotasRequest.getNota1() != null) {
-            // matriculaAluno.setNota1: Atualiza a nota1 que vem atualmente do BD
+           
             matriculaAluno.setNota1(atualizarNotasRequest.getNota1());
         }
 
-        // Verifica se o front tá mandando a nota2
-        // atualizarNotasRequest.getNota2(): Traz a nota que vem do front
+       
         if (atualizarNotasRequest.getNota2() != null) {
-            // matriculaAluno.setNota2: Atualiza a nota1 que vem atualmente do BD
+            
             matriculaAluno.setNota2(atualizarNotasRequest.getNota2());
         }
 
@@ -110,9 +104,6 @@ public class MatriculaAlunoService {
             disciplinasAlunoResponse.setNota1(matriculaAluno.getNota1());
             disciplinasAlunoResponse.setNota2(matriculaAluno.getNota2());
 
-            // não quero isso nesse método, MAS eu (prof) vou fazer
-            // se possível, reutilize o método de calcula média acima
-            // refatore ele.
 
             if (matriculaAluno.getNota1() != null && matriculaAluno.getNota2() != null) {
                 disciplinasAlunoResponse.setMedia((matriculaAluno.getNota1() + matriculaAluno.getNota2()) / 2.0);
